@@ -35,4 +35,17 @@ class LogSearch extends Log
 
         return $dataProvider;
     }
+
+    public function getStats(int $limit, int $offset)
+    {
+        $query = Log::find()
+            ->select(['url, COUNT(*) AS count, max(datetime) as lastVisit'])
+            ->groupBy(['url']);
+
+
+        return [
+            'totalCount' => $query->count(),
+            'models' => $query->offset($offset)->limit($limit)->asArray()->all(),
+        ];
+    }
 }

@@ -18,13 +18,9 @@ class LoggerController extends \yii\web\Controller {
         return $model->errors;
     }
 
-    public function actionShowLogs() {
+    public function actionShowLogs(int $limit, int $offset) {
         $searchModel = new LogSearch();
-        $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
-        return [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]; 
+        return $searchModel->getStats($limit, $offset);
     }
  
 }
