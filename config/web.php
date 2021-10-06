@@ -16,7 +16,7 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'Du6GOYBU10J1WojnMZzzfN5kNV2bgW3b',
             'enableCsrfValidation' => false,
-            //'baseUrl' => '',
+            'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -45,17 +45,17 @@ $config = [
             ],
         ],
         'db' => $db,
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //         '/' => 'site/index',
-        //         '<controller:\w+>/<id:\d+>' => '<controller>/view',
-        //         '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-        //         '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-        //         '<module:\w+>/<controller:\w+>/<action:\w+>/' => '<module>/<controller>/<action>',
-        //     ],
-        // ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '/' => 'site/index',
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<module:\w+>/<controller:\w+>/<action:\w+>/' => '<module>/<controller>/<action>',
+            ],
+        ],
     ],
     'modules' => [
         'api1' => [

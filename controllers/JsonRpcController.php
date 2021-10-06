@@ -25,7 +25,7 @@ class JsonRpcController extends Controller {
             'corsFilter' => [
                 'class' => \yii\filters\Cors::className(),
                 'cors' => [
-                    'Origin' => ['http://landind.loc', 'http://landing.kazandev.u0258205.cp.regruhosting.ru/'],
+                    'Origin' => ['http://landind.loc'],
                     'Access-Control-Allow-Methods' => ['POST'],
                     'Access-Control-Allow-Headers' => ['Content-Type, Authorization'],
                     'Access-Control-Allow-Credentials' => true,
@@ -33,25 +33,6 @@ class JsonRpcController extends Controller {
                     'Access-Control-Expose-Headers' => ['X-Pagination-Current-Page'],
                 ],
             ],
-            // 'compositeAuth' => [
-            //     'class' => CompositeAuth::className(),
-            //     'authMethods' => [
-            //         HttpBasicAuth::className(),
-            //         HttpBearerAuth::className(),
-            //         QueryParamAuth::className(),
-            //     ],
-            // ],
-            // 'access' => [
-            //     'class' => AccessControl::className(),
-            //     'only' => ['index'],
-            //     'rules' => [
-            //         [
-            //             'actions' => ['index'],
-            //             'allow' => true,
-            //             'roles' => ['@'],
-            //         ],
-            //     ],
-            // ],
             [
                 'class' => \yii\filters\ContentNegotiator::className(),
                 'only' => ['index', 'view'],
