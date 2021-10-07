@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use georgique\yii2\jsonrpc\Controller;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 class JsonRpcController extends Controller {
 
@@ -33,9 +34,15 @@ class JsonRpcController extends Controller {
                     'Access-Control-Expose-Headers' => ['X-Pagination-Current-Page'],
                 ],
             ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'index' => ['post'],
+                ],
+            ],
             [
                 'class' => \yii\filters\ContentNegotiator::className(),
-                'only' => ['index', 'view'],
+                'only' => ['index'],
                 'formats' => [
                     'application/json' => \yii\web\Response::FORMAT_JSON,
                 ],
